@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cotizá tu proyecto con TECA Muebles. Elegí tipo de mueble, medidas, materiales y terminaciones.">
+  <title>Cotizá tu proyecto | TECA Muebles</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/output.css">
+</head>
+<body class="bg-teca-light text-teca-dark antialiased">
+
+  <!-- WhatsApp float -->
+  <a href="https://wa.me/542215904082" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp"
+     class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl transition-all duration-300 hover:scale-110">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+      <a href="/" class="block transition-opacity duration-300 hover:opacity-80">
+        <img src="/media/logo-teca.webp" alt="TECA Muebles" class="h-12 w-auto">
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/#proceso"  class="nav-link text-xs tracking-[0.2em] uppercase transition-colors duration-200">Proceso</a>
+        <a href="/#taller"   class="nav-link text-xs tracking-[0.2em] uppercase transition-colors duration-200">Taller</a>
+        <a href="/#nosotros" class="nav-link text-xs tracking-[0.2em] uppercase transition-colors duration-200">Nosotros</a>
+        <a href="/#colores"  class="nav-link text-xs tracking-[0.2em] uppercase transition-colors duration-200">Colores</a>
+        <a href="/#brote"    class="nav-link text-xs tracking-[0.2em] uppercase transition-colors duration-200">Tienda</a>
+        <a href="/#contacto" class="nav-link text-xs tracking-[0.2em] uppercase transition-colors duration-200">Contacto</a>
+        <a href="/cotiza" class="text-xs tracking-[0.2em] uppercase bg-teca-dark text-teca-cream px-5 py-2.5 hover:bg-teca-brown transition-colors duration-200">Cotizá</a>
+      </div>
+      <button id="menu-btn" class="md:hidden p-1" aria-label="Menú">
+        <svg id="icon-open"  class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-teca-dark/98 backdrop-blur-sm border-t border-white/10">
+      <div class="px-6 py-6 flex flex-col gap-5">
+        <a href="/#proceso"  class="mobile-link text-xs tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors">Proceso</a>
+        <a href="/#taller"   class="mobile-link text-xs tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors">Taller</a>
+        <a href="/#nosotros" class="mobile-link text-xs tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors">Nosotros</a>
+        <a href="/#colores"  class="mobile-link text-xs tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors">Colores</a>
+        <a href="/#brote"    class="mobile-link text-xs tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors">Tienda</a>
+        <a href="/#contacto" class="mobile-link text-xs tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors">Contacto</a>
+        <a href="/cotiza"    class="text-xs tracking-[0.2em] uppercase text-teca-gold hover:text-white transition-colors">Cotizá tu proyecto</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <section class="pt-36 pb-12 bg-teca-cream border-b border-teca-gold/20">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <p class="text-teca-gold text-xs tracking-[0.5em] uppercase mb-4 font-sans font-light">Carpintería de autor</p>
+      <h1 class="font-serif text-4xl md:text-5xl text-teca-dark mb-4">Cotizá tu proyecto</h1>
+      <p class="font-sans text-teca-dark/60 text-base leading-relaxed max-w-xl mx-auto">
+        Contanos qué tenés en mente. En pocos pasos armamos un presupuesto a medida y nos ponemos en contacto.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROGRESS BAR -->
+  <div class="sticky top-[72px] z-30 bg-white border-b border-teca-gold/20 shadow-sm">
+    <div class="max-w-3xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between gap-2">
+        <div class="step-indicator flex-1 flex flex-col items-center gap-1" data-step="1">
+          <div class="step-circle w-8 h-8 rounded-full flex items-center justify-center text-xs font-sans font-medium transition-all duration-300 bg-teca-dark text-white">1</div>
+          <span class="hidden sm:block text-[10px] tracking-widest uppercase text-teca-dark font-sans">Mueble</span>
+        </div>
+        <div class="h-px flex-1 bg-teca-gold/30 max-w-12"></div>
+        <div class="step-indicator flex-1 flex flex-col items-center gap-1" data-step="2">
+          <div class="step-circle w-8 h-8 rounded-full flex items-center justify-center text-xs font-sans font-medium transition-all duration-300 bg-teca-gold/20 text-teca-dark/40">2</div>
+          <span class="hidden sm:block text-[10px] tracking-widest uppercase text-teca-dark/40 font-sans">Medidas</span>
+        </div>
+        <div class="h-px flex-1 bg-teca-gold/30 max-w-12"></div>
+        <div class="step-indicator flex-1 flex flex-col items-center gap-1" data-step="3">
+          <div class="step-circle w-8 h-8 rounded-full flex items-center justify-center text-xs font-sans font-medium transition-all duration-300 bg-teca-gold/20 text-teca-dark/40">3</div>
+          <span class="hidden sm:block text-[10px] tracking-widest uppercase text-teca-dark/40 font-sans">Terminación</span>
+        </div>
+        <div class="h-px flex-1 bg-teca-gold/30 max-w-12"></div>
+        <div class="step-indicator flex-1 flex flex-col items-center gap-1" data-step="4">
+          <div class="step-circle w-8 h-8 rounded-full flex items-center justify-center text-xs font-sans font-medium transition-all duration-300 bg-teca-gold/20 text-teca-dark/40">4</div>
+          <span class="hidden sm:block text-[10px] tracking-widets uppercase text-teca-dark/40 font-sans">Tus datos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM CONTAINER -->
+  <main class="max-w-3xl mx-auto px-6 py-16">
+
+    <!-- ── STEP 1: Tipo de mueble ── -->
+    <div id="step-1" class="step-content">
+      <h2 class="font-serif text-2xl md:text-3xl text-teca-dark mb-2">¿Qué mueble necesitás?</h2>
+      <p class="font-sans text-sm text-teca-dark/50 mb-8">Seleccioná el tipo de proyecto. Podés elegir más de uno.</p>
+
+      <div id="furniture-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-10">
+        <!-- Cards generadas por JS -->
+      </div>
+
+      <div id="otro-container" class="hidden mb-8">
+        <label class="block font-sans text-xs tracking-widest uppercase text-teca-dark/60 mb-2">¿Qué mueble tenés en mente?</label>
+        <input id="otro-input" type="text" placeholder="Ej: mesa ratona, cabecera, banco..." maxlength="80"
+               class="w-full border border-teca-gold/40 bg-white px-4 py-3 font-sans text-sm text-teca-dark placeholder-teca-dark/30 focus:outline-none focus:border-teca-brown transition-colors">
+      </div>
+
+      <div class="flex justify-end">
+        <button onclick="goTo(2)" class="btn-next bg-teca-dark text-teca-cream font-sans text-xs tracking-widest uppercase px-8 py-4 hover:bg-teca-brown transition-colors duration-200 disabled:opacity-40" disabled>
+          Siguiente →
+        </button>
+      </div>
+    </div>
+
+    <!-- ── STEP 2: Medidas ── -->
+    <div id="step-2" class="step-content hidden">
+      <h2 class="font-serif text-2xl md:text-3xl text-teca-dark mb-2">Medidas aproximadas</h2>
+      <p class="font-sans text-sm text-teca-dark/50 mb-8">Si no las tenés exactas, ingresá una estimación. Lo ajustamos en la consulta.</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+        <div>
+          <label class="block font-sans text-xs tracking-widest uppercase text-teca-dark/60 mb-2">Ancho <span class="normal-case">(cm)</span></label>
+          <input id="medida-ancho" type="number" min="10" max="500" placeholder="ej: 120"
+                 class="w-full border border-teca-gold/40 bg-white px-4 py-3 font-sans text-sm text-teca-dark placeholder-teca-dark/30 focus:outline-none focus:border-teca-brown transition-colors">
+        </div>
+        <div>
+          <label class="block font-sans text-xs tracking-widest uppercase text-teca-dark/60 mb-2">Alto <span class="normal-case">(cm)</span></label>
+          <input id="medida-alto" type="number" min="10" max="500" placeholder="ej: 200"
+                 class="w-full border border-teca-gold/40 bg-white px-4 py-3 font-sans text-sm text-teca-dark placeholder-teca-dark/30 focus:outline-none focus:border-teca-brown transition-colors">
+        </div>
+        <div>
+          <label class="block font-sans text-xs tracking-widest uppercase text-teca-dark/60 mb-2">Profundidad <span class="normal-case">(cm)</span></label>
+          <input id="medida-prof" type="number" min="10" max="200" placeholder="ej: 40"
+                 class="w-full border border-teca-gold/40 bg-white px-4 py-3 font-sans text-sm text-teca-dark placeholder-teca-dark/30 focus:outline-none focus:border-teca-brown transition-colors">
+        </div>
+      </div>
+
+      <div class="mb-8">
+        <label class="block font-sans text-xs tracking-widets uppercase text-teca-dark/60 mb-3">Cantidad de unidades</label>
+        <div class="flex items-center gap-4">
+          <button onclick="changeQty(-1)" class="w-10 h-10 border border-teca-gold/40 flex items-center justify-center text-lg text-teca-dark hover:border-teca-brown transition-colors">−</button>
+          <span id="qty-display" class="font-serif text-2xl text-teca-dark w-8 text-center">1</span>
+          <button onclick="changeQty(1)"  class="w-10 h-10 border border-teca-gold/40 flex items-center justify-center text-lg text-teca-dark hover:border-teca-brown transition-colors">+</button>
+        </div>
+      </div>
+
+      <div class="mb-10">
+        <label class="block font-sans text-xs tracking-widets uppercase text-teca-dark/60 mb-2">¿Tenés referencia o inspiración?</label>
+        <p class="font-sans text-xs text-teca-dark/40 mb-3">Podés mencionarla en el último paso.</p>
+        <div class="flex gap-3">
+          <label class="radio-card flex items-center gap-3 flex-1 border border-teca-gold/40 px-4 py-3 cursor-pointer hover:border-teca-brown transition-colors has-[:checked]:border-teca-brown has-[:checked]:bg-teca-cream">
+            <input type="radio" name="referencia" value="si" class="accent-teca-brown">
+            <span class="font-sans text-sm text-teca-dark">Sí, tengo fotos o planos</span>
+          </label>
+          <label class="radio-card flex items-center gap-3 flex-1 border border-teca-gold/40 px-4 py-3 cursor-pointer hover:border-teca-brown transition-colors has-[:checked]:border-teca-brown has-[:checked]:bg-teca-cream">
+            <input type="radio" name="referencia" value="no" class="accent-teca-brown">
+            <span class="font-sans text-sm text-teca-dark">No, lo describimos juntos</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex justify-between">
+        <button onclick="goTo(1)" class="font-sans text-xs tracking-widets uppercase text-teca-dark/50 hover:text-teca-dark px-4 py-4 transition-colors">← Atrás</button>
+        <button onclick="goTo(3)" class="bg-teca-dark text-teca-cream font-sans text-xs tracking-widets uppercase px-8 py-4 hover:bg-teca-brown transition-colors duration-200">Siguiente →</button>
+      </div>
+    </div>
+
+    <!-- ── STEP 3: Material y terminación ── -->
+    <div id="step-3" class="step-content hidden">
+      <h2 class="font-serif text-2xl md:text-3xl text-teca-dark mb-2">Material y terminación</h2>
+      <p class="font-sans text-sm text-teca-dark/50 mb-8">Elegí el material base y la terminación que más te gusta.</p>
+
+      <!-- Material -->
+      <div class="mb-10">
+        <p class="font-sans text-xs tracking-widets uppercase text-teca-dark/60 mb-4">Material</p>
+        <div id="material-grid" class="grid grid-cols-2 gap-3">
+          <!-- generado por JS -->
+        </div>
+      </div>
+
+      <!-- Herrajes -->
+      <div class="mb-10">
+        <p class="font-sans text-xs tracking-widets uppercase text-teca-dark/60 mb-4">Herrajes y accesorios</p>
+        <div class="grid grid-cols-3 gap-3" id="herrajes-grid">
+          <!-- generado por JS -->
+        </div>
+      </div>
+
+      <!-- Terminación / color -->
+      <div class="mb-10">
+        <p class="font-sans text-xs tracking-widets uppercase text-teca-dark/60 mb-4">Terminación</p>
+        <div id="terminacion-grid" class="grid grid-cols-3 sm:grid-cols-6 gap-3">
+          <!-- generado por JS -->
+        </div>
+      </div>
+
+      <div class="flex justify-between">
+        <button onclick="goTo(2)" class="font-sans text-xs tracking-widets uppercase text-teca-dark/50 hover:text-teca-dark px-4 py-4 transition-colors">← Atrás</button>
+        <button onclick="goTo(4)" id="btn-step3-next" class="bg-teca-dark text-teca-cream font-sans text-xs tracking-widets uppercase px-8 py-4 hover:bg-teca-brown transition-colors duration-200 disabled:opacity-40" disabled>Siguiente →</button>
+      </div>
+    </div>
+
+    <!-- ── STEP 4: Datos de contacto ── -->
+    <div id="step-4" class="step-content hidden">
+      <h2 class="font-serif text-2xl md:text-3xl text-teca-dark mb-2">Tus datos</h2>
+      <p class="font-sans text-sm text-teca-dark/50 mb-8">Para enviarte el presupuesto y coordinar una consulta.</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+        <div>
+          <label class="block font-sans text-xs tracking-widets uppercase text-teca-dark/60 mb-2">Nombre <span class="text-teca-brown">*</span></label>
+          <input id="contact-nombre" type="text" placeholder="Tu nombre" required
+                 class="w-full border border-teca-gold/40 bg-white px-4 py-3 font-sans text-sm text-teca-dark placeholder-teca-dark/30 focus:outline-none focus:border-teca-brown transition-colors">
+        </div>
+        <div>
+          <label class="block font-sans text-xs tracking-widets uppercase text-teca-dark/60 mb-2">WhatsApp <span class="text-teca-brown">*</span></label>
+          <input id="contact-wsp" type="tel" placeholder="ej: 221 555-1234" required
+                 class="w-full border border-teca-gold/40 bg-white px-4 py-3 font-sans text-sm text-teca-dark placeholder-teca-dark/30 focus:outline-none focus:border-teca-brown transition-colors">
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <label class="block font-sans text-xs tracking-widets uppercase text-teca-dark/60 mb-2">Email <span class="font-normal normal-case text-teca-dark/30">(opcional)</span></label>
+        <input id="contact-email" type="email" placeholder="tucorreo@email.com"
+               class="w-full border border-teca-gold/40 bg-white px-4 py-3 font-sans text-sm text-teca-dark placeholder-teca-dark/30 focus:outline-none focus:border-teca-brown transition-colors">
+      </div>
+
+      <div class="mb-10">
+        <label class="block font-sans text-xs tracking-widets uppercase text-teca-dark/60 mb-2">Descripción / inspiración <span class="font-normal normal-case text-teca-dark/30">(opcional)</span></label>
+        <textarea id="contact-desc" rows="4" placeholder="Contanos más sobre el proyecto, referencias, dónde va el mueble, si tenés fotos o planos..."
+                  class="w-full border border-teca-gold/40 bg-white px-4 py-3 font-sans text-sm text-teca-dark placeholder-teca-dark/30 focus:outline-none focus:border-teca-brown transition-colors resize-none"></textarea>
+      </div>
+
+      <!-- Resumen -->
+      <div id="summary-box" class="bg-teca-cream border border-teca-gold/30 p-6 mb-8 hidden">
+        <p class="font-sans text-xs tracking-widets uppercase text-teca-dark/50 mb-4">Resumen de tu proyecto</p>
+        <div id="summary-content" class="font-sans text-sm text-teca-dark space-y-1.5 leading-relaxed"></div>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <button onclick="goTo(3)" class="font-sans text-xs tracking-widets uppercase text-teca-dark/50 hover:text-teca-dark px-4 py-4 transition-colors">← Atrás</button>
+        <button id="btn-send" onclick="sendWhatsApp()"
+                class="bg-green-600 hover:bg-green-700 text-white font-sans text-xs tracking-widets uppercase px-8 py-4 transition-colors duration-200 flex items-center gap-3 disabled:opacity-40" disabled>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Enviar por WhatsApp
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-teca-light border-t border-teca-gold/20 py-10">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <a href="/"><img src="/media/logo-teca.webp" alt="TECA Muebles" class="h-10 w-auto opacity-70"></a>
+      <p class="font-sans text-xs text-teca-dark/30 tracking-widets">La Plata &middot; Gonnet &mdash; Carpintería de autor</p>
+    </div>
+  </footer>
+
+  <script>
+  // ─── DATA ─────────────────────────────────────────────────────────────────
+  const MUEBLES = [
+    { id: 'biblioteca',  label: 'Biblioteca',     icon: '📚' },
+    { id: 'mesa',        label: 'Mesa',            icon: '🪵' },
+    { id: 'escritorio',  label: 'Escritorio',      icon: '🖥️' },
+    { id: 'placard',     label: 'Placard / Vestidor', icon: '🚪' },
+    { id: 'cocina',      label: 'Muebles de cocina', icon: '🍳' },
+    { id: 'silla',       label: 'Sillas / Banco',  icon: '🪑' },
+    { id: 'tv',          label: 'Rack / Mueble TV',icon: '📺' },
+    { id: 'exterior',    label: 'Exterior',        icon: '🌿' },
+    { id: 'otro',        label: 'Otro',            icon: '✏️' },
+  ];
+
+  const MATERIALES = [
+    { id: 'maciza',    label: 'Madera maciza',   desc: 'Roble, pino, cedro' },
+    { id: 'mdf',       label: 'MDF pintado',      desc: 'Lacado liso o texturado' },
+    { id: 'melamina',  label: 'Melamina',         desc: 'Resistente y económica' },
+    { id: 'mixto',     label: 'Mixto',            desc: 'Combinación de materiales' },
+  ];
+
+  const HERRAJES = [
+    { id: 'economico', label: 'Básico',    desc: 'Funcional' },
+    { id: 'standard',  label: 'Standard',  desc: 'Blum / Grass' },
+    { id: 'premium',   label: 'Premium',   desc: 'Soft-close, push-to-open' },
+  ];
+
+  const COLORES = [
+    { id: 'blanco',    label: 'Blanco Natural', swatch: '#F0EAD6', border: '#D4C9A8' },
+    { id: 'roble',     label: 'Roble',          swatch: '#C4A35A', border: '#A88540' },
+    { id: 'verde',     label: 'Verde Salvia',   swatch: '#8B9E7B', border: '#6B7E5B' },
+    { id: 'gris',      label: 'Gris Piedra',    swatch: '#A8A8A0', border: '#888880' },
+    { id: 'negro',     label: 'Negro Mate',     swatch: '#2C2C2C', border: '#1A1A1A' },
+    { id: 'terracota', label: 'Terracota',      swatch: '#C26A45', border: '#A25035' },
+  ];
+
+  // ─── STATE ────────────────────────────────────────────────────────────────
+  const state = {
+    currentStep: 1,
+    muebles:     new Set(),
+    qty:         1,
+    material:    null,
+    herrajes:    null,
+    terminacion: null,
+  };
+
+  // ─── STEP NAVIGATION ──────────────────────────────────────────────────────
+  function goTo(step) {
+    document.getElementById(`step-${state.currentStep}`).classList.add('hidden');
+    state.currentStep = step;
+    document.getElementById(`step-${step}`).classList.remove('hidden');
+    updateProgress();
+    if (step === 4) buildSummary();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function updateProgress() {
+    document.querySelectorAll('.step-indicator').forEach(el => {
+      const s = parseInt(el.dataset.step);
+      const circle = el.querySelector('.step-circle');
+      const label  = el.querySelector('span:last-child');
+      if (s < state.currentStep) {
+        circle.className = 'step-circle w-8 h-8 rounded-full flex items-center justify-center text-xs font-sans font-medium transition-all duration-300 bg-teca-gold text-teca-dark';
+        circle.textContent = '✓';
+        if (label) label.className = 'hidden sm:block text-[10px] tracking-widest uppercase text-teca-gold font-sans font-medium';
+      } else if (s === state.currentStep) {
+        circle.className = 'step-circle w-8 h-8 rounded-full flex items-center justify-center text-xs font-sans font-medium transition-all duration-300 bg-teca-dark text-white';
+        circle.textContent = s;
+        if (label) label.className = 'hidden sm:block text-[10px] tracking-widest uppercase text-teca-dark font-sans font-medium';
+      } else {
+        circle.className = 'step-circle w-8 h-8 rounded-full flex items-center justify-center text-xs font-sans font-medium transition-all duration-300 bg-teca-gold/20 text-teca-dark/40';
+        circle.textContent = s;
+        if (label) label.className = 'hidden sm:block text-[10px] tracking-widest uppercase text-teca-dark/40 font-sans';
+      }
+    });
+  }
+
+  // ─── STEP 1: Furniture grid ───────────────────────────────────────────────
+  function buildFurnitureGrid() {
+    const grid = document.getElementById('furniture-grid');
+    grid.innerHTML = '';
+    MUEBLES.forEach(m => {
+      const btn = document.createElement('button');
+      const sel = state.muebles.has(m.id);
+      btn.className = [
+        'flex flex-col items-center gap-3 p-4 border-2 transition-all duration-200 text-center group',
+        sel ? 'border-teca-brown bg-teca-cream shadow-sm' : 'border-teca-gold/30 hover:border-teca-brown/50 hover:bg-teca-cream/60 bg-white',
+      ].join(' ');
+      btn.innerHTML = `
+        <span class="text-3xl">${m.icon}</span>
+        <span class="font-sans text-xs leading-tight ${sel ? 'text-teca-dark font-medium' : 'text-teca-dark/60'}">${m.label}</span>
+        ${sel ? '<span class="w-4 h-4 bg-teca-brown rounded-full flex items-center justify-center text-white text-[9px]">✓</span>' : ''}
+      `;
+      btn.addEventListener('click', () => {
+        if (m.id === 'otro') {
+          if (state.muebles.has('otro')) {
+            state.muebles.delete('otro');
+            document.getElementById('otro-container').classList.add('hidden');
+          } else {
+            state.muebles.add('otro');
+            document.getElementById('otro-container').classList.remove('hidden');
+          }
+        } else {
+          state.muebles.has(m.id) ? state.muebles.delete(m.id) : state.muebles.add(m.id);
+        }
+        buildFurnitureGrid();
+        document.querySelector('#step-1 .btn-next').disabled = state.muebles.size === 0;
+      });
+      grid.appendChild(btn);
+    });
+    document.querySelector('#step-1 .btn-next').disabled = state.muebles.size === 0;
+  }
+
+  // ─── STEP 2: Qty ─────────────────────────────────────────────────────────
+  function changeQty(delta) {
+    state.qty = Math.max(1, Math.min(20, state.qty + delta));
+    document.getElementById('qty-display').textContent = state.qty;
+  }
+
+  // ─── STEP 3: Material ────────────────────────────────────────────────────
+  function buildMaterialGrid() {
+    const grid = document.getElementById('material-grid');
+    grid.innerHTML = '';
+    MATERIALES.forEach(m => {
+      const sel = state.material === m.id;
+      const btn = document.createElement('button');
+      btn.className = [
+        'flex flex-col items-start p-4 border-2 transition-all duration-200 text-left',
+        sel ? 'border-teca-brown bg-teca-cream' : 'border-teca-gold/30 hover:border-teca-brown/50 bg-white',
+      ].join(' ');
+      btn.innerHTML = `
+        <span class="font-sans text-sm font-medium ${sel ? 'text-teca-dark' : 'text-teca-dark/80'}">${m.label}</span>
+        <span class="font-sans text-xs ${sel ? 'text-teca-brown' : 'text-teca-dark/40'} mt-1">${m.desc}</span>
+      `;
+      btn.addEventListener('click', () => {
+        state.material = m.id;
+        buildMaterialGrid();
+        checkStep3();
+      });
+      grid.appendChild(btn);
+    });
+  }
+
+  function buildHerrajesGrid() {
+    const grid = document.getElementById('herrajes-grid');
+    grid.innerHTML = '';
+    HERRAJES.forEach(h => {
+      const sel = state.herrajes === h.id;
+      const btn = document.createElement('button');
+      btn.className = [
+        'flex flex-col items-start p-4 border-2 transition-all duration-200 text-left',
+        sel ? 'border-teca-brown bg-teca-cream' : 'border-teca-gold/30 hover:border-teca-brown/50 bg-white',
+      ].join(' ');
+      btn.innerHTML = `
+        <span class="font-sans text-sm font-medium ${sel ? 'text-teca-dark' : 'text-teca-dark/80'}">${h.label}</span>
+        <span class="font-sans text-xs ${sel ? 'text-teca-brown' : 'text-teca-dark/40'} mt-1">${h.desc}</span>
+      `;
+      btn.addEventListener('click', () => {
+        state.herrajes = h.id;
+        buildHerrajesGrid();
+        checkStep3();
+      });
+      grid.appendChild(btn);
+    });
+  }
+
+  function buildTerminacionGrid() {
+    const grid = document.getElementById('terminacion-grid');
+    grid.innerHTML = '';
+    COLORES.forEach(c => {
+      const sel = state.terminacion === c.id;
+      const btn = document.createElement('button');
+      btn.className = [
+        'flex flex-col items-center gap-2 p-3 border-2 transition-all duration-200',
+        sel ? 'border-teca-brown bg-teca-cream shadow-sm' : 'border-transparent hover:border-teca-dark/15 hover:bg-teca-cream/60',
+      ].join(' ');
+      btn.innerHTML = `
+        <span class="w-9 h-9 rounded-full shadow-inner block" style="background-color:${c.swatch}; border: 2px solid ${c.border};"></span>
+        <span class="font-sans text-[10px] leading-tight text-center ${sel ? 'text-teca-dark font-medium' : 'text-teca-dark/50'}">${c.label}</span>
+      `;
+      btn.addEventListener('click', () => {
+        state.terminacion = c.id;
+        buildTerminacionGrid();
+        checkStep3();
+      });
+      grid.appendChild(btn);
+    });
+  }
+
+  function checkStep3() {
+    document.getElementById('btn-step3-next').disabled = !(state.material && state.herrajes && state.terminacion);
+  }
+
+  // ─── STEP 4: Summary + WhatsApp ──────────────────────────────────────────
+  function buildSummary() {
+    const nombre = document.getElementById('contact-nombre').value.trim();
+    const wsp    = document.getElementById('contact-wsp').value.trim();
+
+    const mueblesLabels = [...state.muebles].map(id => {
+      if (id === 'otro') return document.getElementById('otro-input').value || 'Otro';
+      return MUEBLES.find(m => m.id === id)?.label || id;
+    }).join(', ');
+
+    const ancho = document.getElementById('medida-ancho').value;
+    const alto  = document.getElementById('medida-alto').value;
+    const prof  = document.getElementById('medida-prof').value;
+    const medidas = [ancho && `${ancho}cm`, alto && `${alto}cm`, prof && `${prof}cm`].filter(Boolean).join(' × ') || 'A definir';
+
+    const mat  = MATERIALES.find(m => m.id === state.material)?.label || '—';
+    const herr = HERRAJES.find(h => h.id === state.herrajes)?.label   || '—';
+    const term = COLORES.find(c => c.id === state.terminacion)?.label || '—';
+
+    const lines = [
+      { k: 'Mueble',       v: mueblesLabels },
+      { k: 'Medidas',      v: `${medidas} (cantidad: ${state.qty})` },
+      { k: 'Material',     v: mat },
+      { k: 'Herrajes',     v: herr },
+      { k: 'Terminación',  v: term },
+    ];
+
+    const box = document.getElementById('summary-box');
+    const content = document.getElementById('summary-content');
+    content.innerHTML = lines.map(l =>
+      `<div class="flex gap-2"><span class="text-teca-dark/40 min-w-[90px]">${l.k}:</span><span class="font-medium">${l.v}</span></div>`
+    ).join('');
+    box.classList.remove('hidden');
+
+    // enable send if nombre + wsp filled
+    const btnSend = document.getElementById('btn-send');
+    const checkContact = () => {
+      btnSend.disabled = !(
+        document.getElementById('contact-nombre').value.trim() &&
+        document.getElementById('contact-wsp').value.trim()
+      );
+    };
+    document.getElementById('contact-nombre').addEventListener('input', checkContact);
+    document.getElementById('contact-wsp').addEventListener('input', checkContact);
+    checkContact();
+  }
+
+  function sendWhatsApp() {
+    const nombre = document.getElementById('contact-nombre').value.trim();
+    const wsp    = document.getElementById('contact-wsp').value.trim();
+    const email  = document.getElementById('contact-email').value.trim();
+    const desc   = document.getElementById('contact-desc').value.trim();
+
+    const mueblesLabels = [...state.muebles].map(id => {
+      if (id === 'otro') return document.getElementById('otro-input').value || 'Otro';
+      return MUEBLES.find(m => m.id === id)?.label || id;
+    }).join(', ');
+
+    const ancho = document.getElementById('medida-ancho').value;
+    const alto  = document.getElementById('medida-alto').value;
+    const prof  = document.getElementById('medida-prof').value;
+    const medidas = [ancho && `${ancho}cm`, alto && `${alto}cm`, prof && `${prof}cm`].filter(Boolean).join(' × ') || 'A definir';
+
+    const mat  = MATERIALES.find(m => m.id === state.material)?.label || '—';
+    const herr = HERRAJES.find(h => h.id === state.herrajes)?.label   || '—';
+    const term = COLORES.find(c => c.id === state.terminacion)?.label || '—';
+
+    const msg = [
+      `Hola TECA Muebles! 👋 Quiero cotizar un proyecto.`,
+      ``,
+      `*Datos del proyecto:*`,
+      `• Mueble: ${mueblesLabels}`,
+      `• Medidas aprox: ${medidas}`,
+      `• Cantidad: ${state.qty} unidad${state.qty > 1 ? 'es' : ''}`,
+      `• Material: ${mat}`,
+      `• Herrajes: ${herr}`,
+      `• Terminación: ${term}`,
+      desc ? `• Descripción: ${desc}` : null,
+      ``,
+      `*Mis datos:*`,
+      `• Nombre: ${nombre}`,
+      `• WhatsApp: ${wsp}`,
+      email ? `• Email: ${email}` : null,
+    ].filter(l => l !== null).join('\n');
+
+    const url = `https://wa.me/542215904082?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
+  }
+
+  // ─── NAVBAR ───────────────────────────────────────────────────────────────
+  (function () {
+    const navbar  = document.getElementById('navbar');
+    const links   = navbar.querySelectorAll('.nav-link');
+    const menuBtn = document.getElementById('menu-btn');
+
+    function update() {
+      const scrolled = window.scrollY > 60;
+      navbar.style.background     = 'rgba(250,250,247,0.98)';
+      navbar.style.backdropFilter = 'blur(8px)';
+      navbar.style.boxShadow      = scrolled ? '0 1px 0 rgba(191,177,141,0.2)' : 'none';
+      navbar.style.paddingTop     = scrolled ? '0.5rem' : '1.25rem';
+      navbar.style.paddingBottom  = scrolled ? '0.5rem' : '1.25rem';
+      const textColor = 'rgba(44,26,14,0.55)';
+      const textHover = '#2C1A0E';
+      if (menuBtn) menuBtn.style.color = textHover;
+      links.forEach(l => {
+        l.style.color = textColor;
+        l.onmouseenter = () => l.style.color = textHover;
+        l.onmouseleave = () => l.style.color = textColor;
+      });
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  })();
+
+  // ─── MOBILE MENU ──────────────────────────────────────────────────────────
+  (function () {
+    const btn       = document.getElementById('menu-btn');
+    const menu      = document.getElementById('mobile-menu');
+    const iconOpen  = document.getElementById('icon-open');
+    const iconClose = document.getElementById('icon-close');
+    btn.addEventListener('click', () => {
+      const isOpen = !menu.classList.contains('hidden');
+      menu.classList.toggle('hidden', isOpen);
+      iconOpen.classList.toggle('hidden', !isOpen);
+      iconClose.classList.toggle('hidden', isOpen);
+    });
+  })();
+
+  // ─── INIT ─────────────────────────────────────────────────────────────────
+  buildFurnitureGrid();
+  buildMaterialGrid();
+  buildHerrajesGrid();
+  buildTerminacionGrid();
+  </script>
+</body>
+</html>
